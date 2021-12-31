@@ -1,0 +1,154 @@
+@import "../../app.scss";
+
+.navbar {
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+
+  &.scrolled {
+    background-color: var(--main-color);
+  }
+
+  .container {
+    padding: 0px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+
+    .left {
+      display: flex;
+      align-items: center;
+
+      img {
+        height: 25px;
+        margin-right: 40px;
+
+        @include mobile {
+          display: none;
+        }
+      }
+
+      span {
+        margin-right: 20px;
+        cursor: pointer;
+
+        @include mobile {
+          display: inline-block;
+        }
+
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+
+      .icon {
+        margin: 0px 15px 5px 15px;
+        cursor: pointer;
+      }
+
+      .searchBox {
+        position: relative;
+        margin-bottom: 10px;
+
+        .inputSearch {
+          height: 15px;
+          width: 15px;
+          border-style: none;
+          padding: 10px;
+          font-size: 13px;
+          letter-spacing: 2px;
+          outline: none;
+          border-radius: 25px;
+          transition: all 0.5s ease-in-out;
+
+          background-color: transparent;
+
+          padding-right: 10px;
+          color: #fff;
+
+          &:hover {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+            letter-spacing: 2px;
+            font-weight: 50;
+          }
+
+          &:focus {
+            width: 300px;
+            border-radius: 0px;
+            background-color: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+          }
+        }
+
+        .btnSearch {
+          width: 50px;
+          height: 50px;
+          border-style: none;
+          font-size: 20px;
+          font-weight: bold;
+          outline: none;
+          cursor: pointer;
+          border-radius: 50%;
+          position: absolute;
+          right: 0px;
+          color: #ffffff;
+          background-color: transparent;
+          pointer-events: painted;
+        }
+
+        .btnSearch:focus ~ .inputSearch {
+          width: 300px;
+          border-radius: 0px;
+          background-color: transparent;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+          transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+        }
+      }
+
+      .info {
+        img {
+          width: 30px;
+          height: 30px;
+          border-radius: 5px;
+          object-fit: cover;
+          cursor: pointer;
+        }
+      }
+
+      .dropDown {
+        
+        .options {
+          display: none;
+          background-color: var(--main-color);
+          border-radius: 5px;
+        }
+
+        span {
+          padding: 10px;
+          cursor: pointer;
+        }
+
+        &:hover {
+          .options {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+}

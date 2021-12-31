@@ -1,0 +1,73 @@
+.profile {
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #141414;
+    position: relative;
+
+    .logoSection {
+        width: 95vw;
+        margin: auto;
+        height: 100px;
+        background-color: rgb(20, 20, 20);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        img {
+            width: 160px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        button {
+            position: absolute;
+            right: 40px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgb(83, 83, 83);
+                color: white;
+            }
+        }
+    }
+
+    .container {
+        width: 100vw;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #fff;
+
+        input {
+            width: 250px;
+            height: 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 500;
+            margin-right: 10px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgb(83, 83, 83);
+                color: white;
+            }
+        }
+    }
+}

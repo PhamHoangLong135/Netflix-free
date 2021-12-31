@@ -1,0 +1,54 @@
+.footer {
+    position: relative;
+    padding: 60px 30px;
+    margin-top: 40px;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .contentMenus {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        .contentMenu {
+            flex-direction: column;
+            text-align: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 600;
+
+            li {
+                margin-bottom: 10px;
+                color: white;
+                cursor: pointer;
+                list-style: none;
+
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+    img {
+        height: 30px;
+        width: 100px;
+        margin-bottom: 25px;
+    }
+
+    .social {
+        text-align: center;
+        margin-top: 30px;
+        text-decoration: none;
+        
+        span {
+            cursor: pointer;
+            color: white;
+            margin: 0 15px 0 15px;
+
+            &:hover {
+                color: red;
+            }
+        }
+    }
+}
