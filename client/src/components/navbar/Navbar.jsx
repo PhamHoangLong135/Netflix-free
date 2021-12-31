@@ -6,6 +6,7 @@ import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
 import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
+import { SearchBar } from "../searchBar/searchBar";
 
 
 const Navbar = () => {
@@ -93,13 +94,14 @@ const Navbar = () => {
             <button className="btnSearch">
               <Search className="icon" />
             </button>
-            <input
+            {/* <input
               type="text"
               className="inputSearch"
               placeholder=" Type to Search..."
               // onKeyPress={(e) => handleKeyDown(e)}
               //onChange={(e) => searchItems(e.target.value)}
-            />
+            /> */}
+            <SearchBar />
           </div>
 
           <Notifications className="icon" />

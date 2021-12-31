@@ -12,7 +12,8 @@ import {
 } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext";
-import Search from "./pages/search/Search";
+import {SearchBar} from "./components/searchBar/searchBar";
+
 
 const App = () => {
   const { user } = useContext(AuthContext);
@@ -44,9 +45,9 @@ const App = () => {
             {/* <Route path="/latest">
               <Latest />
             </Route> */}
-            {/* <Route path="/search">
-              <Search />
-            </Route> */}
+            <Route path="/search">
+              <SearchBar />
+            </Route>
 
           </>
         )}

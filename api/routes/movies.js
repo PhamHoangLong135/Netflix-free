@@ -127,4 +127,22 @@ router.get("/", verify, async (req, res) => {
   }
 });
 
+//search movie theo title query
+
+
+router.get("/search", async (req, res) => {
+  const query = req.query.new;
+{
+    try {
+      const movies = query
+        ? await Movie.find().sort({ _id: -1 })
+        : await Movie.find();
+      res.status(200).json(movies);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }
+});
+
+
 module.exports = router;
