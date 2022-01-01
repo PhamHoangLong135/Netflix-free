@@ -8,7 +8,6 @@ import { useHistory, useLocation } from "react-router-dom";
 import axios from "axios";
 import { SearchBar } from "../searchBar/searchBar";
 
-
 const Navbar = () => {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,27 +36,27 @@ const Navbar = () => {
   //     history.push(`/search/?q=${searchInput}`);
   //   }
   // }
-  const search = new URLSearchParams(location.search);
-  search.set("search", searchInput);
+  // const search = new URLSearchParams(location.search);
+  // search.set("search", searchInput);
 
-  const searchItems = (searchInput) => {
-    setSearchInput(searchInput);
-    if (searchInput !== "") {
-      const filteredData = getList.filter((item) => {
-        return Object.values(item.title)
-          .join("")
-          .toLowerCase()
-          .includes(searchInput.toLowerCase());
-      });
-      history.push(window.location.pathname + "?" + search.toString());
-      setFilteredResults(filteredData);
-      console.log(filteredData);
-    } else {
-      setFilteredResults(getList);
-      history.replace("/")
-      console.log("Không tìm thấy phim");
-    }
-  };
+  // const searchItems = (searchInput) => {
+  //   setSearchInput(searchInput);
+  //   if (searchInput !== "") {
+  //     const filteredData = getList.filter((item) => {
+  //       return Object.values(item.title)
+  //         .join("")
+  //         .toLowerCase()
+  //         .includes(searchInput.toLowerCase());
+  //     });
+  //     history.push(window.location.pathname + "?" + search.toString());
+  //     setFilteredResults(filteredData);
+  //     console.log(filteredData);
+  //   } else {
+  //     setFilteredResults(getList);
+  //     history.replace("/");
+  //     console.log("Không tìm thấy phim");
+  //   }
+  // };
   // console.log(search);
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
@@ -89,6 +88,8 @@ const Navbar = () => {
 
           <span>My List</span>
         </div>
+        {/* <SearchBar /> */}
+
         <div className="right">
           <div className="searchBox">
             <button className="btnSearch">

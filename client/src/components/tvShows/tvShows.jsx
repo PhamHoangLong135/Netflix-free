@@ -19,8 +19,8 @@ const Thumbnail = styled.div`
   flex: 0.4;
 
   img {
-    width: 100 px;
-    height: 100%;
+    width: 150px;
+    height: 100px;
   }
 `;
 
@@ -30,6 +30,7 @@ const Name = styled.h3`
   margin-left: 10px;
   flex: 2;
   display: flex;
+  align-self: center;
 `;
 
 const Rating = styled.span`
@@ -45,11 +46,11 @@ export default function TvShow(props) {
 
   return (
     <TvShowContainer>
-      <Link to={{ pathname: "/watch", movie: show }}>
+      <Link to={{ pathname: "/watch", movie: show }} style={{display: 'flex', textDecoration: 'none'}}>
         <Thumbnail>
           <img src={thumbanilSrc}/>
         </Thumbnail>
-        <Name>{name}</Name>
+        <Name >{name}</Name>
       </Link>
       {/* <Rating>{rating || "N/A"}</Rating> */}
     </TvShowContainer>

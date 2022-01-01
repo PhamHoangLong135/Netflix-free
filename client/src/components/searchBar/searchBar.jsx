@@ -15,15 +15,18 @@ import TvShow  from "../tvShows/tvShows";
 const SearchBarContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  width: 34em;
+  width: 400px;
   height: 3.8em;
   background-color: #fff;
   border-radius: 6px;
+  position: absolute;
+  margin-top: -10px;
+  margin-left: -500px;
   box-shadow: 0px 2px 12px 3px rgba(0, 0, 0, 0.14);
 `;
 
 const SearchInputContainer = styled.div`
-  width: 100%;
+  width: 380px;
   min-height: 4em;
   display: flex;
   align-items: center;
@@ -83,7 +86,7 @@ const LineSeperator = styled.span`
 `;
 
 const SearchContent = styled.div`
-  width: 100%;
+  width: 350px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -182,8 +185,6 @@ export function SearchBar(props) {
               .includes(searchQuery.toLowerCase());
           });
         setTvShows(tvShows);
-        console.log(searchQuery)
-        console.log(tvShows)
       }
   
       setLoading(false);
