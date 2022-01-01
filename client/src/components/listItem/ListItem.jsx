@@ -5,13 +5,17 @@ import {
   ThumbUpAltOutlined,
   ThumbDownOutlined,
 } from "@material-ui/icons";
-import { useEffect, useState } from "react";
+import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+
 
 export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({});
+  const [favourites, setFavourites] = useState([]);
+
 
   useEffect(() => {
     const getMovie = async () => {
@@ -30,6 +34,35 @@ export default function ListItem({ index, item }) {
     getMovie();
   }, [item]);
 
+  useEffect(() => {
+		const movieFavourites = JSON.parse(
+			localStorage.getItem('react-movie-app-favourites')
+		);
+
+		if (movieFavourites) {
+			setFavourites(movieFavourites);
+		}
+	}, [favourites]);
+
+	const saveToLocalStorage = (items) => {
+		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
+	};
+  
+  const addFavouriteMovie = (movie) => {
+		const newFavouriteList = [...favourites, movie];
+		setFavourites(newFavouriteList);
+		saveToLocalStorage(newFavouriteList);
+	};
+
+  const removeFavouriteMovie = (movie) => {
+		const newFavouriteList = favourites.filter(
+			(favourite) => favourite._id !== movie._id
+		);
+
+		setFavourites(newFavouriteList);
+		saveToLocalStorage(newFavouriteList);
+	};
+  // console.log(favourites);
   return (
 
     <div
@@ -50,8 +83,10 @@ export default function ListItem({ index, item }) {
           <Link Style="color:white" to={{ pathname: "/watch", movie: movie }}>
             <PlayArrow className="icon" />
           </Link>
-          <Add className="icon" />
-          <ThumbUpAltOutlined className="icon iconLike" />
+          <Add className="icon"
+            onClick={() => addFavouriteMovie(movie)} 
+            />
+          <ThumbUpAltOutlined className="icon iconLike" onClick={() => removeFavouriteMovie(movie)}/>
           <ThumbDownOutlined className="icon iconDislike" />
         </div>
         <div className="itemInfoTop">
