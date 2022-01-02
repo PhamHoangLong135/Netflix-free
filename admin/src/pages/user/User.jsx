@@ -33,7 +33,7 @@ export default function User() {
   const handleChange = (e) => {
     const value = e.target.value;
     return setUserData({
-      ...userData,
+      ...userData,  
       [e.target.name]: value,
     });
   };
