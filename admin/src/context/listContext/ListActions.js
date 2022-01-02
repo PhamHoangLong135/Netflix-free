@@ -24,6 +24,9 @@ export const createListFailure = () => ({
   type: "CREATE_LIST_FAILURE",
 });
 
+// export const addListSuccess = (id) => ({
+//   type: "ADD_LIST_SUCCESS",
+// })
 export const updateListStart = () => ({
   type: "UPDATE_LIST_START",
 });

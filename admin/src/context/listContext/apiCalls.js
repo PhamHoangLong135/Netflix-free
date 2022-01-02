@@ -40,6 +40,13 @@ export const createList = async (list, dispatch) => {
   }
 };
 
+// add movie to exist list.
+
+export const addList = async (list, dispatch) => {
+
+}
+
+
 //delete
 export const deleteList = async (id, dispatch) => {
   dispatch(deleteListStart());

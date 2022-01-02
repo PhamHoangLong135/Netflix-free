@@ -18,6 +18,18 @@ router.post("/", verify, async (req, res) => {
   }
 });
 
+// add a new movie to current listRoute
+router.post("/:id", async (req, res) => {
+  try {
+    const save = await List.findOneAndUpdate(
+      { _id: req.params.id },
+      { $push: { content: req.body } }
+    );
+    res.status(201).json(save);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 //DELETE
 
 router.delete("/:id", verify, async (req, res) => {
@@ -33,6 +45,25 @@ router.delete("/:id", verify, async (req, res) => {
   }
 });
 
+//delete movie from list
+
+router.post("/moDelete/:id", async (req, res) => {
+  try {
+    const idMovie = req.body;
+    await List.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        $pull: {
+          content: {$in: idMovie} 
+        },
+      },
+      { multi: true }
+    );
+    res.status(201).json('deleted');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 //GET
 
 router.get("/", verify, async (req, res) => {

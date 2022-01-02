@@ -4,19 +4,29 @@ import storage from "../../firebase";
 import { createMovie, getMovies } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
 import { ListContext } from "../../context/listContext/ListContext";
-import { createList } from "../../context/listContext/apiCalls";
-import { useHistory } from "react-router-dom";
+import { createList, getLists } from "../../context/listContext/apiCalls";
+import { useHistory, useParams} from "react-router-dom";
+import axios from "axios";
 
 export default function NewList() {
   const [list, setList] = useState(null);
+  const [idList, setIdList] = useState(null);
+  // const [listMovie, setListMovie] = useState([])
   const history = useHistory()
-
+  const {listID} = useParams()
   const { dispatch } = useContext(ListContext);
   const { movies, dispatch: dispatchMovie } = useContext(MovieContext);
+  const { lists, dispatch: dispatchList } = useContext(ListContext);
 
   useEffect(() => {
     getMovies(dispatchMovie);
   }, [dispatchMovie]);
+
+  useEffect(() => {
+    getLists(dispatchList);
+    
+  }, [dispatchList])
+
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -28,12 +38,28 @@ export default function NewList() {
     setList({ ...list, [e.target.name]: value });
   };
 
+  const handleSelectList = (e) => {
+    const value = e.target.value;
+    setIdList({[e.target.name] : value})
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     createList(list, dispatch);
     history.push("/lists")
   };
 
+  // console.log(list.content)
+
+  const pushMovieList = () => {
+    axios.post(`/lists/${idList._id}`, list.content)
+  }
+
+  const deleteMovieFromList = () => {
+    axios.post(`/lists/moDelete/${idList._id}`, list.content)
+  }
+
+  // console.log(list.content);
+  console.log(idList);
   return (
     <div className="newProduct">
       <h1 className="addProductTitle">New List</h1>
@@ -83,8 +109,31 @@ export default function NewList() {
             </select>
           </div>
         </div>
+        <div className="formRight">
+          <div className="addProductItem">
+            <label>List</label>
+            <select
+              multiple
+              name="_id"
+              onChange={handleSelectList}
+              style={{ height: "280px" }}
+            >
+              {lists.map((addList) => (
+                <option key={addList._id} value={addList._id}>
+                  {addList.title}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
         <button className="addProductButton" onClick={handleSubmit}>
           Create
+        </button>
+        <button className="addProductButton" onClick={pushMovieList}>
+          Add Movie List
+        </button>
+        <button className="addProductButton" onClick={deleteMovieFromList}>
+          Delete
         </button>
       </form>
     </div>
