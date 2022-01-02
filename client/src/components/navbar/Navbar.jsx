@@ -58,8 +58,9 @@ const Navbar = () => {
           {/* <Link to="/latest" className="link">
             <span>New and Popular</span>
           </Link> */}
-
+          <Link to="/mylist" className="link">
           <span>My List</span>
+          </Link>
         </div>
 
         <div className="right">

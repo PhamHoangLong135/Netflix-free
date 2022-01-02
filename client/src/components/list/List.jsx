@@ -35,8 +35,8 @@ export default function List({ list }) {
           style={{ display: !isMoved && "none" }}
         />
         <div className="container" ref={listRef}>
-          {list.content.map((item, i) => (
-            <ListItem index={i} item={item} />
+          {list.content.map((item, index) => (
+            <ListItem key={index} item={item} />
           ))}
         </div>
         <ArrowForwardIosOutlined

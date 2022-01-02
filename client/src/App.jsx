@@ -4,6 +4,7 @@ import Register from "./pages/register/Register";
 import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
+import MyList from "./pages/MyList/MyList";
 import {
   BrowserRouter as Router,
   Switch,
@@ -41,10 +42,9 @@ const App = () => {
             <Route path="/profile">
               <Profile />
             </Route>
-
-            {/* <Route path="/latest">
-              <Latest />
-            </Route> */}
+            <Route path="/mylist">
+              <MyList />
+            </Route>
             <Route path="/search">
               <SearchBar />
             </Route>
