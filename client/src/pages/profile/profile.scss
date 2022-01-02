@@ -1,3 +1,4 @@
+@import "../../app.scss";
 .profile {
     width: 100vw;
     min-height: 100vh;
@@ -17,6 +18,12 @@
             width: 160px;
             height: 50px;
             cursor: pointer;
+
+            @include mobile {
+                width: 100px;
+                height: 30px;
+                margin-left: 20px;
+            }
         }
 
         button {
@@ -33,6 +40,12 @@
                 background-color: rgb(83, 83, 83);
                 color: white;
             }
+
+            @include mobile {
+                font-size: 15px;
+                padding: 5px 10px;
+                margin-top: -20px;
+            }
         }
     }
 
@@ -44,6 +57,13 @@
         align-items: center;
         flex-direction: column;
         color: #fff;
+
+        img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 50px;
+            border-radius: 5px;
+        }
 
         input {
             width: 250px;

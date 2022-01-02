@@ -15,23 +15,25 @@ import TvShow  from "../tvShows/tvShows";
 const SearchBarContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 3.8em;
-  background-color: #fff;
+  width: 350px;
+  height: 60px;
+  background-color: rgba(0,0,0,0.75);
   border-radius: 6px;
+  border: 2px solid white;
   position: absolute;
   margin-top: -10px;
-  margin-left: -500px;
+  margin-bottom: -500px;
+  margin-left: -380px;
   box-shadow: 0px 2px 12px 3px rgba(0, 0, 0, 0.14);
 `;
 
 const SearchInputContainer = styled.div`
-  width: 380px;
-  min-height: 4em;
+  width: 320px;
+  min-height: 2.5em;
   display: flex;
   align-items: center;
   position: relative;
-  padding: 2px 15px;
+  padding: 2px 10px;
 `;
 
 const SearchInput = styled.input`
@@ -39,9 +41,9 @@ const SearchInput = styled.input`
   height: 100%;
   outline: none;
   border: none;
-  font-size: 21px;
-  color: #12112e;
-  font-weight: 500;
+  font-size: 15px;
+  color: white;
+  font-weight: 200;
   border-radius: 6px;
   background-color: transparent;
 
@@ -64,6 +66,7 @@ const SearchIcon = styled.span`
   margin-right: 10px;
   margin-top: 6px;
   vertical-align: middle;
+  align-items: center;
 `;
 
 const CloseIcon = styled(motion.span)`
@@ -82,16 +85,17 @@ const LineSeperator = styled.span`
   display: flex;
   min-width: 100%;
   min-height: 2px;
-  background-color: #d8d8d878;
+  background-color: white;
 `;
 
 const SearchContent = styled.div`
-  width: 350px;
+  width: 300px;
   height: 100%;
   display: flex;
   flex-direction: column;
   padding: 1em;
   overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 const LoadingWrapper = styled.div`
@@ -112,10 +116,10 @@ const WarningMessage = styled.span`
 
 const containerVariants = {
   expanded: {
-    height: "30em",
+    height: "20em",
   },
   collapsed: {
-    height: "3.8em",
+    height: "2.8em",
   },
 };
 
@@ -203,7 +207,7 @@ export function SearchBar(props) {
             <IoSearch />
           </SearchIcon>
           <SearchInput
-            placeholder="Search for Series/Shows"
+            placeholder="Search for ..."
             onFocus={expandContainer}
             ref={inputRef}
             value={searchQuery}
@@ -229,12 +233,12 @@ export function SearchBar(props) {
           <SearchContent>
             {isLoading && (
               <LoadingWrapper>
-                <MoonLoader loading color="#000" size={20} />
+                <MoonLoader loading color="white" size={20} />
               </LoadingWrapper>
             )}
             {!isLoading && isEmpty && !noTvShows && (
               <LoadingWrapper>
-                <WarningMessage>Start typing to Search</WarningMessage>
+                <WarningMessage >Start typing to Search</WarningMessage>
               </LoadingWrapper>
             )}
             {!isLoading && noTvShows && (

@@ -1,12 +1,12 @@
-import { ArrowDropDown, Notifications, Search } from "@material-ui/icons";
+import { ArrowDropDown} from "@material-ui/icons";
 import { useContext, useState, useEffect } from "react";
-import "./navbar.scss";
 import { Link } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
-import { useHistory, useLocation } from "react-router-dom";
-import axios from "axios";
 import { SearchBar } from "../searchBar/searchBar";
+import axios from "axios";
+import "./navbar.scss";
 
 const Navbar = () => {
   const location = useLocation();
@@ -30,34 +30,7 @@ const Navbar = () => {
       });
   }, []);
 
-  //Enter no new page
-  // function handleKeyDown(e) {
-  //   if (e.key === "Enter") {
-  //     history.push(`/search/?q=${searchInput}`);
-  //   }
-  // }
-  // const search = new URLSearchParams(location.search);
-  // search.set("search", searchInput);
-
-  // const searchItems = (searchInput) => {
-  //   setSearchInput(searchInput);
-  //   if (searchInput !== "") {
-  //     const filteredData = getList.filter((item) => {
-  //       return Object.values(item.title)
-  //         .join("")
-  //         .toLowerCase()
-  //         .includes(searchInput.toLowerCase());
-  //     });
-  //     history.push(window.location.pathname + "?" + search.toString());
-  //     setFilteredResults(filteredData);
-  //     console.log(filteredData);
-  //   } else {
-  //     setFilteredResults(getList);
-  //     history.replace("/");
-  //     console.log("Không tìm thấy phim");
-  //   }
-  // };
-  // console.log(search);
+  
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
@@ -88,24 +61,12 @@ const Navbar = () => {
 
           <span>My List</span>
         </div>
-        {/* <SearchBar /> */}
 
         <div className="right">
           <div className="searchBox">
-            <button className="btnSearch">
-              <Search className="icon" />
-            </button>
-            {/* <input
-              type="text"
-              className="inputSearch"
-              placeholder=" Type to Search..."
-              // onKeyPress={(e) => handleKeyDown(e)}
-              //onChange={(e) => searchItems(e.target.value)}
-            /> */}
             <SearchBar />
           </div>
 
-          <Notifications className="icon" />
           <div className="info">
             <Link to="/profile">
               <img

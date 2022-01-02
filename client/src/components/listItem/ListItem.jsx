@@ -51,8 +51,8 @@ export default function ListItem({ index, item }) {
             <PlayArrow className="icon" />
           </Link>
           <Add className="icon" />
-          <ThumbUpAltOutlined className="icon iconLike" />
-          <ThumbDownOutlined className="icon iconDislike" />
+          <ThumbUpAltOutlined tabindex="0" className="icon iconLike" />
+          <ThumbDownOutlined tabindex="0" className="icon iconDislike" />
         </div>
         <div className="itemInfoTop">
           <span>{movie?.duration}</span>

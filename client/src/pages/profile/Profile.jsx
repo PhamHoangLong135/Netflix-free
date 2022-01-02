@@ -17,6 +17,10 @@ export default function Profile() {
             </div>
 
             <div className="container">
+                <img
+                    src="https://pbs.twimg.com/media/D8tCa48VsAA4lxn.jpg"
+                    alt=""
+                />
                 <label>
                     <p>User name</p>
                     <input name="name" placeholder=" Input name ..." />

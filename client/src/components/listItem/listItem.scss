@@ -59,13 +59,13 @@
       }
 
       .iconLike {
-        &:hover {
+        &:hover,&:active, &:focus  {
           color: rgb(48, 120, 187);
         }
       }
-      
+
       .iconDislike {
-        &:hover {
+        &:hover,&:active, &:focus {
           color: rgb(241, 50, 50);
         }
       }

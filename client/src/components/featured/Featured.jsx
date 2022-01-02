@@ -150,7 +150,13 @@ export default function Featured({ type, setGenre }) {
                 alt="" className="imgTumnail"
               />
               <Link Style="color:white" to={{ pathname: "/watch", movie: content }}>
-                <PlayArrow Style="margin-right:33px" />
+              <button
+                  Style="border: solid 2px; border-radius: 5px; cursor: pointer;
+                         width: 80px; margin: 10px 5px "
+                  className="playBtn"
+                >
+                  <PlayArrow Style="margin-right:33px" />
+                </button>
               </Link>
             </Typography>
 

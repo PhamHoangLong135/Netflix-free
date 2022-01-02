@@ -19,14 +19,14 @@ const Thumbnail = styled.div`
   flex: 0.4;
 
   img {
-    width: 150px;
-    height: 100px;
+    width: 140px;
+    height: 80px;
   }
 `;
 
 const Name = styled.h3`
   font-size: 15px;
-  color: #000;
+  color: white;
   margin-left: 10px;
   flex: 2;
   display: flex;
