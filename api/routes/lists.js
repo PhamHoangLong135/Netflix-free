@@ -44,7 +44,6 @@ router.delete("/:id", verify, async (req, res) => {
     res.status(403).json("You are not allowed!");
   }
 });
-
 //delete movie from list
 
 router.post("/moDelete/:id", async (req, res) => {
@@ -54,18 +53,44 @@ router.post("/moDelete/:id", async (req, res) => {
       { _id: req.params.id },
       {
         $pull: {
-          content: {$in: idMovie} 
+          content: { $in: idMovie },
         },
       },
       { multi: true }
     );
-    res.status(201).json('deleted');
+    res.status(201).json("deleted");
   } catch (err) {
     res.status(500).json(err);
   }
 });
-//GET
 
+// update list item
+router.put("/update/:id", verify, async (req, res) => {
+  if (req.user.isAdmin) {
+    try {
+      const updateList = await List.findByIdAndUpdate(
+        { _id: req.params.id },
+        { $set: req.body },
+        { new: true }
+      );
+      res.status(200).json(updateList);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  }else {
+    res.status(403).json("Token invalid");
+  }
+});
+//GET
+router.get("/find/:id", async (req, res) => {
+  try {
+    const list = await List.findById(req.params.id);
+    res.status(200).json(list);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+//
 router.get("/", verify, async (req, res) => {
   const typeQuery = req.query.type;
   const genreQuery = req.query.genre;
