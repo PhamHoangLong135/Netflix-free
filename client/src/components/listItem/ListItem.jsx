@@ -35,33 +35,33 @@ export default function ListItem({ index, item }) {
   }, [item]);
 
   useEffect(() => {
-		const movieFavourites = JSON.parse(
-			localStorage.getItem('react-movie-app-favourites')
-		);
+    const movieFavourites = JSON.parse(
+      localStorage.getItem('react-movie-app-favourites')
+    );
 
-		if (movieFavourites) {
-			setFavourites(movieFavourites);
-		}
-	}, [favourites]);
+    if (movieFavourites) {
+      setFavourites(movieFavourites);
+    }
+  }, [favourites]);
 
-	const saveToLocalStorage = (items) => {
-		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
-	};
-  
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
+  };
+
   const addFavouriteMovie = (movie) => {
-		const newFavouriteList = [...favourites, movie];
-		setFavourites(newFavouriteList);
-		saveToLocalStorage(newFavouriteList);
-	};
+    const newFavouriteList = [...favourites, movie];
+    setFavourites(newFavouriteList);
+    saveToLocalStorage(newFavouriteList);
+  };
 
   const removeFavouriteMovie = (movie) => {
-		const newFavouriteList = favourites.filter(
-			(favourite) => favourite._id !== movie._id
-		);
+    const newFavouriteList = favourites.filter(
+      (favourite) => favourite._id !== movie._id
+    );
 
-		setFavourites(newFavouriteList);
-		saveToLocalStorage(newFavouriteList);
-	};
+    setFavourites(newFavouriteList);
+    saveToLocalStorage(newFavouriteList);
+  };
   // console.log(favourites);
   return (
 
@@ -77,23 +77,19 @@ export default function ListItem({ index, item }) {
           <video src={movie.img ? movie.trailer : movie.video} autoPlay={true} loop />
         )}
       </Link>
-      
+
       <div className="itemInfo">
         <div className="icons">
           <Link Style="color:white" to={{ pathname: "/watch", movie: movie }}>
             <PlayArrow className="icon" />
           </Link>
-<<<<<<< HEAD
-          <Add className="icon" />
-          <ThumbUpAltOutlined tabindex="0" className="icon iconLike" />
-          <ThumbDownOutlined tabindex="0" className="icon iconDislike" />
-=======
+          
           <Add className="icon"
-            onClick={() => addFavouriteMovie(movie)} 
-            />
-          <ThumbUpAltOutlined className="icon iconLike" onClick={() => removeFavouriteMovie(movie)}/>
-          <ThumbDownOutlined className="icon iconDislike" />
->>>>>>> 419bb96dfae510b43b1a7b944b90d3c2c62206e4
+            onClick={() => addFavouriteMovie(movie)}
+          />
+          <ThumbUpAltOutlined tabindex="0" className="icon iconLike" onClick={() => removeFavouriteMovie(movie)} />
+          <ThumbDownOutlined tabindex="0" className="icon iconDislike" />
+
         </div>
         <div className="itemInfoTop">
           <span>{movie?.duration}</span>

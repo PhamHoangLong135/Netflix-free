@@ -9,8 +9,10 @@ import {
 import DoneOutlinedIcon from "@mui/icons-material/DoneOutlined";
 import "./myList.scss";
 import { Link } from "react-router-dom";
+import Navbar from "../../components/navbar/Navbar";
+import Footer from "../../components/footer/Footer";
+import Featured from "../../components/featured/Featured";
 
-// import { useEffect, useState } from "react";
 
 export default function MyList() {
   const [isHovered, setIsHovered] = useState(false);
@@ -40,7 +42,9 @@ export default function MyList() {
   };
 
   return (
-    <div>
+    <div className="pageList">
+      <Navbar/>
+      <div className="title">My list</div>
       {myMovie &&
         myMovie.map((movie, index) => (
           <div
@@ -89,6 +93,7 @@ export default function MyList() {
             </div>
           </div>
         ))}
+        <Footer />
     </div>
   );
 }
