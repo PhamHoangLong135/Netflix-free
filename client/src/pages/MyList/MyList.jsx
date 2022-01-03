@@ -26,7 +26,7 @@ export default function MyList() {
     if (movieFavourites) {
       setMyMovie(movieFavourites);
     }
-  }, [myMovie]);
+  }, []);
 
   const saveToLocalStorage = (items) => {
     localStorage.setItem("react-movie-app-favourites", JSON.stringify(items));
@@ -49,9 +49,10 @@ export default function MyList() {
         myMovie.map((movie, index) => (
           <div
             className="myList"
-            style={{ left: isHovered && index * 150 - 50 + index * 2 }}
+            Style={{ left: isHovered && index * 150 - 50 + index * 2 }}
             // onMouseEnter={() => setIsHovered(true)}
             // onMouseLeave={() => setIsHovered(false)}
+            key={index}
           >
             <Link Style="color:white" to={{ pathname: "/watch", movie: movie }}>
               <img src={movie?.imgSm} alt="" />

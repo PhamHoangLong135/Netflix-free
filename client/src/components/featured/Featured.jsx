@@ -147,7 +147,7 @@ export default function Featured({ type, setGenre }) {
               <img
                 Style="width: 100%; height: 100%; object-fit: cover"
                 src={content.img}
-                alt="" className="imgTumnail"
+                alt="" className="imgThumbNail"
               />
               <Link Style="color:white" to={{ pathname: "/watch", movie: content }}>
               <button

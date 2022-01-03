@@ -42,7 +42,7 @@ export default function ListItem({ index, item }) {
     if (movieFavourites) {
       setFavourites(movieFavourites);
     }
-  }, [favourites]);
+  }, []);
 
   const saveToLocalStorage = (items) => {
     localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
@@ -67,7 +67,7 @@ export default function ListItem({ index, item }) {
 
     <div
       className="listItem"
-      style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+      Style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -87,8 +87,8 @@ export default function ListItem({ index, item }) {
           <Add className="icon"
             onClick={() => addFavouriteMovie(movie)}
           />
-          <ThumbUpAltOutlined tabindex="0" className="icon iconLike" onClick={() => removeFavouriteMovie(movie)} />
-          <ThumbDownOutlined tabindex="0" className="icon iconDislike" />
+          <ThumbUpAltOutlined tabIndex="0" className="icon iconLike" onClick={() => removeFavouriteMovie(movie)} />
+          <ThumbDownOutlined tabIndex="0" className="icon iconDislike" />
 
         </div>
         <div className="itemInfoTop">
