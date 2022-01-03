@@ -49,12 +49,12 @@ export default function MyList() {
         myMovie.map((movie, index) => (
           <div
             className="myList"
-            Style={{ left: isHovered && index * 150 - 50 + index * 2 }}
+            style={{ left: isHovered && index * 150 - 50 + index * 2 }}
             // onMouseEnter={() => setIsHovered(true)}
             // onMouseLeave={() => setIsHovered(false)}
             key={index}
           >
-            <Link Style="color:white" to={{ pathname: "/watch", movie: movie }}>
+            <Link style={{color:'white'}} to={{ pathname: "/watch", movie: movie }}>
               <img src={movie?.imgSm} alt="" />
               {isHovered && (
                 <video
@@ -68,7 +68,7 @@ export default function MyList() {
             <div className="itemInfo">
               <div className="icons">
                 <Link
-                  Style="color:white"
+                  style={{color:'white'}}
                   to={{ pathname: "/watch", movie: movie }}
                 >
                   <PlayArrow className="icon" />

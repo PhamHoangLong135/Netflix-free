@@ -67,11 +67,11 @@ export default function ListItem({ index, item }) {
 
     <div
       className="listItem"
-      Style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
+      style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link Style="color:white" to={{ pathname: "/watch", movie: movie }}>
+      <Link style={{color:'white'}} to={{ pathname: "/watch", movie: movie }}>
         <img src={movie?.imgSm} alt="" />
         {isHovered && (
           <video src={movie.img ? movie.trailer : movie.video} autoPlay={true} loop />
@@ -80,14 +80,14 @@ export default function ListItem({ index, item }) {
 
       <div className="itemInfo">
         <div className="icons">
-          <Link Style="color:white" to={{ pathname: "/watch", movie: movie }}>
+          <Link style={{color:'white'}} to={{ pathname: "/watch", movie: movie }}>
             <PlayArrow className="icon" />
           </Link>
           
           <Add className="icon"
             onClick={() => addFavouriteMovie(movie)}
           />
-          <ThumbUpAltOutlined tabIndex="0" className="icon iconLike" onClick={() => removeFavouriteMovie(movie)} />
+          <ThumbUpAltOutlined tabIndex="0" className="icon iconLike" />
           <ThumbDownOutlined tabIndex="0" className="icon iconDislike" />
 
         </div>

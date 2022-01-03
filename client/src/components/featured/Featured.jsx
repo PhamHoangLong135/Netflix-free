@@ -113,7 +113,7 @@ export default function Featured({ type, setGenre }) {
         <img src={content?.imgTitle} alt="" />
         <span className="desc">{content?.desc}</span>
         <div className="buttons">
-          <Link Style="text-decoration: none" to={{ pathname: "/watch", movie: content }}>
+          <Link style= {{textDecoration: 'none'}} to={{ pathname: "/watch", movie: content }}>
             <button className="play">
               <PlayArrow />
               <span>Play</span>
@@ -137,22 +137,22 @@ export default function Featured({ type, setGenre }) {
           <BootstrapDialogTitle
             id="customized-dialog-title"
             onClose={handleClose}
-            Style="background-color: black; color: white; font-size: 30px"
+            style= {{backgroundColor: 'black', color: 'white', fontSize: '30px'}}
           >
             {content.title}
           </BootstrapDialogTitle>
 
-          <DialogContent Style="background-color: black; color:white" dividers className="imgParent">
+          <DialogContent style={{backgroundColor: 'black', color:'white'}} dividers className="imgParent">
             <Typography gutterBottom>
               <img
-                Style="width: 100%; height: 100%; object-fit: cover"
+                style={{width: '100%', height: '100%', objectFit: 'cover'}}
                 src={content.img}
                 alt="" className="imgThumbNail"
               />
-              <Link Style="color:white" to={{ pathname: "/watch", movie: content }}>
+              <Link style={{color:'white'}} to={{ pathname: "/watch", movie: content }}>
               <button
-                  Style="border: solid 2px; border-radius: 5px; cursor: pointer;
-                         width: 80px; margin: 10px 5px "
+                  style={{border: 'solid 2px', borderRadius: '5px', cursor: 'pointer',
+                         width: '80px', margin: '10px 5px'}}
                   className="playBtn"
                 >
                   <PlayArrow Style="margin-right:33px" />
@@ -161,12 +161,12 @@ export default function Featured({ type, setGenre }) {
             </Typography>
 
             <Typography gutterBottom >
-              <span Style="margin-right: 10px">{content.year}</span>
-              <span Style="border: solid 0.5px">+{content.limit}</span>
+              <span style={{marginRight: '10px'}}>{content.year}</span>
+              <span style={{border: 'solid 0.5px'}}>+{content.limit}</span>
             </Typography>
 
             <Typography gutterBottom>
-              <span Style="display:flex; margin-bottom:5px">
+              <span style={{display:'flex', marginBottom:'5px'}}>
                 {content.desc}
               </span>
               <span>
