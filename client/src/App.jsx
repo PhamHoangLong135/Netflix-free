@@ -5,6 +5,7 @@ import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
 import MyList from "./pages/MyList/MyList";
+import DetailModal from "./components/detailsModal/Details";
 import {
   BrowserRouter as Router,
   Switch,
@@ -47,6 +48,9 @@ const App = () => {
             </Route>
             <Route path="/search">
               <SearchBar />
+            </Route>
+            <Route path="/details">
+              <DetailModal />
             </Route>
 
           </>

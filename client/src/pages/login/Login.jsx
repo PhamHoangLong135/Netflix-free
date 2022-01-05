@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../../authContext/apiCalls";
+import { authFadeInUpVariants, staggerOne } from "../../motionUtils";
+import { motion } from "framer-motion";
 import { AuthContext } from "../../authContext/AuthContext";
 import "./login.scss";
 
@@ -8,6 +10,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { dispatch } = useContext(AuthContext);
+
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -42,8 +45,7 @@ export default function Login() {
           </button>
           <span>
             New to Netflix?
-            <Link
-              to={{ pathname: "/register" }}>
+            <Link to={{ pathname: "/register" }}>
               <b> Sign up now.</b>
             </Link>
           </span>
@@ -53,8 +55,6 @@ export default function Login() {
             <a href="https://support.google.com/recaptcha/?hl=en">
               <b> Learn more.</b>
             </a>
-
-
           </small>
         </form>
       </div>

@@ -125,6 +125,7 @@ export default function Featured({ type, setGenre }) {
           </button>
         </div>
       </div>
+      <div className="infoBottom" />
 
       <div className="InfoTable">
         <BootstrapDialog

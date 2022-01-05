@@ -1,14 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+// import { Provider } from "react-redux";
+// import { PersistGate } from "redux-persist/integration/react";
+// import { store, persistor } from "./redux/store";
 import { AuthContextProvider } from "./authContext/AuthContext";
-
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthContextProvider>
-        <App />
-    </AuthContextProvider>
+      <AuthContextProvider>
+          <App />
+      </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
