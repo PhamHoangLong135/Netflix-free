@@ -16,11 +16,15 @@ import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext";
 import {SearchBar} from "./components/searchBar/searchBar";
 
-
 const App = () => {
   const { user } = useContext(AuthContext);
   return (
     <Router>
+       {user && (
+                <>
+                    <DetailModal />
+                </>
+            )}
       <Switch>
         <Route exact path="/">
           {user ? <Home /> : <Redirect to="/register" />}

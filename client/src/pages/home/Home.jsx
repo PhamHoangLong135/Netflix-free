@@ -5,6 +5,7 @@ import "./home.scss";
 import List from "../../components/list/List";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import DetailModal from "../../components/detailsModal/Details";
 
 const Home = ({ type }) => {
   const [lists, setLists] = useState([]);
@@ -35,6 +36,7 @@ const Home = ({ type }) => {
   return (
     <div className="home">
       <Navbar />
+      {/* <DetailModal /> */}
       <Featured type={type} setGenre={setGenre} />
       { lists && lists.map((list, index) => (
         <List key={index} list={list} />
