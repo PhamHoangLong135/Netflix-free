@@ -58,6 +58,19 @@
         &::placeholder {
           color: lightgray;
         }
+
+      }
+      h3 {
+        font-size: 10px;
+        font-weight: 100;
+      }
+
+      input:invalid:not(:placeholder-shown){
+        border: 2px solid red;
+      }
+      
+      input:valid:not(:placeholder-shown){
+        border: 2px solid green;
       }
 
       button {

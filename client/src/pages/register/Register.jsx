@@ -2,17 +2,26 @@ import axios from "axios";
 import { useRef } from "react";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import  useForm from "../../hooks/useForm";
 import "./register.scss";
 
 export default function Register() {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const history = useHistory();
 
   const emailRef = useRef();
   const passwordRef = useRef();
   const usernameRef = useRef();
+
+  const formRegister = () => {
+
+    console.log("Callback function when form is submitted!");
+    console.log("Form Values ", values);
+  }
+
+  const { handleChange, values, errors, handleSubmit } = useForm(formRegister);
 
   const handleStart = () => {
     setEmail(emailRef.current.value);
@@ -50,15 +59,34 @@ export default function Register() {
         </p>
         {!email ? (
           <div className="input">
-            <input type="email" placeholder="email address" ref={emailRef} className="inputOutline" />
+            <input 
+            type="email" 
+            name="email"
+            placeholder="Email..."
+            onChange={handleChange}
+            ref={emailRef}
+            className="inputOutline" 
+            />
             <button className="registerButton" onClick={handleStart}>
               Get Started
             </button>
           </div>
         ) : (
           <form className="input">
-            <input type="username" placeholder="username" ref={usernameRef} />
-            <input type="password" placeholder="password" ref={passwordRef} />
+            <input 
+            type="username"
+            name="username" 
+            placeholder="username" 
+            onChange={handleChange}
+            ref={usernameRef} 
+            />
+            <input 
+            type="password" 
+            name="pasword"
+            placeholder="password" 
+            onChange={handleChange}
+            ref={passwordRef} 
+            />
             <button className="registerButton" onClick={handleFinish}>
               Start
             </button>
