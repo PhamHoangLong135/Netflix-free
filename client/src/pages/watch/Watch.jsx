@@ -9,16 +9,10 @@ export default function Watch() {
   const history = useHistory();
   return (
     <div className="watch">
-      {/* <Link to="/">
-        <div className="back">
-          <ArrowBackOutlined />
-          Home
-        </div>
-      </Link> */}
       <button onClick={history.goBack}>
         <div className="back">
           <ArrowBackOutlined />
-          Home
+          Back
         </div>
       </button>
       <video className="video" autoPlay progress controls src={movie.video} />
