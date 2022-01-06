@@ -119,7 +119,7 @@ export default function Featured({ type, setGenre }) {
 							<Link
 								className="Banner__button"
 								// onClick={handlePlayAnimation}
-								to={"/play"}
+								to={{ pathname: "/watch", movie: content }}
 							>
 								<FaPlay />
 								<span>Play</span>

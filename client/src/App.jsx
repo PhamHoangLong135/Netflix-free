@@ -5,6 +5,7 @@ import Watch from "./pages/watch/Watch";
 import Login from "./pages/login/Login";
 import Profile from "./pages/profile/Profile";
 import MyList from "./pages/MyList/MyList";
+import Navbar from "./components/navbar/Navbar";
 import DetailModal from "./components/detailsModal/Details";
 import {
   BrowserRouter as Router,
@@ -14,17 +15,17 @@ import {
 } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext";
-import {SearchBar} from "./components/searchBar/searchBar";
+import { SearchBar } from "./components/searchBar/searchBar";
 
 const App = () => {
   const { user } = useContext(AuthContext);
   return (
     <Router>
-       {user && (
-                <>
-                    <DetailModal />
-                </>
-            )}
+      {user && (
+        <>
+          <DetailModal />
+        </>
+      )}
       <Switch>
         <Route exact path="/">
           {user ? <Home /> : <Redirect to="/register" />}
@@ -56,7 +57,6 @@ const App = () => {
             <Route path="/details">
               <DetailModal />
             </Route>
-
           </>
         )}
       </Switch>
