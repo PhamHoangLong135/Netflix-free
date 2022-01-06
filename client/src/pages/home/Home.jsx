@@ -21,7 +21,8 @@ const Home = ({ type }) => {
           {
             headers: {
               token:
-              "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
+                "Bearer " +
+                JSON.parse(localStorage.getItem("user")).accessToken,
             },
           }
         );
@@ -36,7 +37,6 @@ const Home = ({ type }) => {
   return (
     <div className="home">
       <Navbar />
-      {/* <DetailModal /> */}
       <Featured type={type} setGenre={setGenre} />
       { lists && lists.map((list, index) => (
         <List key={index} list={list} />

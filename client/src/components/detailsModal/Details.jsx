@@ -83,7 +83,7 @@ const DetailModal = () => {
 									</span>
 								</motion.div>
 								<motion.div variants={modalFadeInUpVariants} className="Modal__info--row">
-									<span className='Modal__info--row-label'>{modalContent.limit}</span>
+									<span className='Modal__info--row-label'>Limit: {modalContent.limit}</span>
 								</motion.div>
 							</motion.div>
 						</motion.div>

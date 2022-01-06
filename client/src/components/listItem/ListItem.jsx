@@ -67,7 +67,7 @@ export default function ListItem({ index, item }) {
     <div>
       <div
         className={`Row__poster ${"Row__poster--big"}`}
-        onClick={handleModalOpening}
+        // onClick={handleModalOpening}
       >
         <img src={movie?.imgSm} alt={movie?.title} />
 

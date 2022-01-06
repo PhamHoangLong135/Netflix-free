@@ -5,7 +5,10 @@ import { useHistory, useLocation } from "react-router-dom";
 import { AuthContext } from "../../authContext/AuthContext";
 import { logout } from "../../authContext/AuthActions";
 import { SearchBar } from "../searchBar/searchBar";
+import { motion } from "framer-motion";
 import axios from "axios";
+import { navbarFadeInVariants } from "../../motionUtils";
+
 import "./navbar.scss";
 
 const Navbar = () => {
@@ -37,6 +40,13 @@ const Navbar = () => {
   };
   return (
     <div className={isScrolled ? "navbar scrolled" : "navbar"}>
+      <motion.nav
+				className={`Navbar ${isScrolled && "Navbar__fixed"}`}
+				variants={navbarFadeInVariants}
+				initial="hidden"
+				animate="visible"
+				exit="hidden"
+			>
       <div className="container">
         <div className="left">
           <Link to="/" className="link">
@@ -54,10 +64,6 @@ const Navbar = () => {
           <Link to="/movies" className="link">
             <span className="navbarmainLinks">Movies</span>
           </Link>
-
-          {/* <Link to="/latest" className="link">
-            <span>New and Popular</span>
-          </Link> */}
           <Link to="/mylist" className="link">
           <span>My List</span>
           </Link>
@@ -88,6 +94,7 @@ const Navbar = () => {
       {filteredResults.map((item) => {
         return <h1>{item.title}</h1>;
       })}
+     </motion.nav>
     </div>
   );
 };
