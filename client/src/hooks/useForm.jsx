@@ -88,7 +88,7 @@ const useForm = (callback) => {
     }
     const handleSubmit = (event) => {
         if (event) event.preventDefault();
-
+        
         if (Object.keys(errors).length === 0 && Object.keys(values).length !== 0) {
             callback();
 
