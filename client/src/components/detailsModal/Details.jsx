@@ -15,14 +15,13 @@ const DetailModal = () => {
 	const modalClosed = useSelector(selectModalState);
 	const modalContent = useSelector(selectModalContent);
 	const handleModalClose = () => dispatch(hideModalDetail());
-	// const { title, desc, genre} = modalContent;
-	// const joinedGenres = genresConverted ? genresConverted.join(', ') : "Not available";
-	// const maturityRating = adult === undefined ? "Not available" : adult ? "Suitable for adults only" : "Suitable for all ages";
-	// const reducedDate = release_date ? dateToYearOnly(release_date) : first_air_date ? dateToYearOnly(first_air_date) : "Not Available";
 	const modalRef = useRef();
 
 
-
+	// const handlePlayAnimation = event => {
+	// 	event.stopPropagation();
+	// 	handleModalClose();
+	// };
 	useOutsideClick(modalRef, () => {
 		if (!modalClosed) handleModalClose();
 	});
@@ -62,6 +61,7 @@ const DetailModal = () => {
 								<div className="Modal__image--buttonswrp">
 									<Link
 										className="Modal__image--button"
+										onClick={handleModalClose}
 										to={{ pathname: "/watch", movie: modalContent }}
 									>
 										<FaPlay />

@@ -18,8 +18,11 @@ export default function Login() {
     console.log("Form Values ", values);
   }
 
-  const { handleChange, values, errors, handleSubmit } = useForm(formLogin);
-
+  const { handleChange, values, errors, handleSubmit, handleLogin } = useForm(formLogin);
+  // const handleLogin = (e) => {
+  //   e.preventDefault();
+  //   login({ email, password }, dispatch);
+  // };
 
   return (
     <div className="login">
@@ -54,7 +57,9 @@ export default function Login() {
           {
             errors.password && <h3>{errors.password}</h3>
           }
-          <button className="loginButton">
+          <button className="loginButton" 
+          onClick={handleLogin}
+          >
             Sign In
           </button>
           <span>
