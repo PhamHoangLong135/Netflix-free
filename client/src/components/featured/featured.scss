@@ -106,7 +106,7 @@
 //     background: linear-gradient(180deg, transparent, rgba(14, 14, 14, 0.6), #141414);
 // }
 // }
-
+@import "../../app.scss";
 @import "../../scss/mixin";
 @import "../../scss/variables";
 
@@ -123,6 +123,10 @@
   @include mq(lg) {
     height: 80vh;
     align-items: center;
+  }
+
+  @include mobile {
+    height: 65vh;
   }
 
   &__loadsection {
