@@ -19,7 +19,6 @@ import List from "./pages/list/List";
 import NewList from "./pages/newList/NewList";
 import MovieList from "./pages/movieList/MovieList";
 import Movie from "./pages/movie/Movie";
-// import { Movie } from "@material-ui/icons";
 import NewMovie from "./pages/newMovie/NewMovie";
 
 function App() {
