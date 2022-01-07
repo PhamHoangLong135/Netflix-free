@@ -31,61 +31,16 @@ export default function MyList() {
     localStorage.setItem("react-movie-app-favourites", JSON.stringify(items));
   };
 
-  // const removeFavouriteMovie = (movie) => {
-  //   const newFavouriteList = myMovie.filter(
-  //     (favourite) => favourite._id !== movie._id
-  //   );
+  const removeFavouriteMovie = (movie) => {
+    const newFavouriteList = myMovie.filter(
+      (favourite) => favourite._id !== movie._id
+    );
 
-  //   setMyMovie(newFavouriteList);
-  //   saveToLocalStorage(newFavouriteList);
-  // };
+    setMyMovie(newFavouriteList);
+    saveToLocalStorage(newFavouriteList);
+  };
 
   return (
-    // <div className="pageList">
-    //   <Navbar />
-    //   <div className="title">My list</div>
-    //   <div className="myList">
-    //     {myMovie &&
-    //       myMovie.map((movie, index) => (
-    //         <motion.div
-    //           variants={posterFadeInVariants}
-    //           className="Poster"
-    //           // onClick={handleModalOpening}
-    //         >
-    //           <img src={movie?.imgSm} alt="" />
-    //           <div className="Poster__info">
-    //             <div className="Poster__info--iconswrp">
-    //               <Link
-    //                 className="Poster__info--icon icon--play"
-    //                 // onClick={handlePlayAction}
-    //                 to={{ pathname: "/watch", movie: movie }}
-    //               >
-    //                 <FaPlay />
-    //               </Link>
-    //               <button
-    //                 className="Poster__info--icon icon--favourite"
-    //                 onClick={() => removeFavouriteMovie(movie)}
-    //               >
-    //                 <FaMinus />
-    //               </button>
-    //               <button className="Poster__info--icon icon--toggleModal">
-    //                 <FaChevronDown
-    //                 // onClick={handleModalOpening}
-    //                 />
-    //               </button>
-    //             </div>
-    //             <div className="Poster__info--title">
-    //               <h3>{movie?.title}</h3>
-    //             </div>
-    //             <div className="Poster__info--genres">
-    //               <span className="genre-title">{movie?.genre}</span>
-    //             </div>
-    //           </div>
-    //         </motion.div>
-    //       ))}
-    //   </div>
-    //   <Footer />
-    // </div>
     <>
       <Navbar />
       <motion.div
@@ -107,7 +62,7 @@ export default function MyList() {
         >
           {myMovie && myMovie.length > 0 ? (
             myMovie.map((result) => (
-              <ListFav key={result.id} item={result} {...result} />
+              <ListFav key={result.id} item={result} {...result} removeFavouriteMovie={removeFavouriteMovie} />
             ))
           ) : (
             <h2 className="MyList__title">
