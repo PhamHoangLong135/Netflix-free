@@ -1,4 +1,4 @@
-import { ArrowDropDown } from "@material-ui/icons";
+import { ArrowDropDown, Menu } from "@material-ui/icons";
 import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
@@ -19,6 +19,7 @@ const Navbar = () => {
   const { dispatch } = useContext(AuthContext);
   const [filteredResults, setFilteredResults] = useState([]);
   const [searchInput, setSearchInput] = useState("");
+  const [showLinks, setShowLinks] = useState(false);
 
   useEffect(() => {
     axios
@@ -48,24 +49,30 @@ const Navbar = () => {
       >
         <div className="container">
           <div className="left">
-            <Link to="/" className="link">
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
-                alt=""
-              />
-            </Link>
-            <Link to="/" className="link">
-              <span>Home</span>
-            </Link>
-            <Link to="/series" className="link">
-              <span className="navbarmainLinks">Series</span>
-            </Link>
-            <Link to="/movies" className="link">
-              <span className="navbarmainLinks">Movies</span>
-            </Link>
-            <Link to="/mylist" className="link">
-              <span>My List</span>
-            </Link>
+            <div className="links" id={showLinks ? "hidden" : ""}>
+              <Link to="/" className="link">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png"
+                  alt=""
+                />
+              </Link>
+              <Link to="/" className="link">
+                <span>Home</span>
+              </Link>
+              <Link to="/series" className="link">
+                <span className="navbarmainLinks">Series</span>
+              </Link>
+              <Link to="/movies" className="link">
+                <span className="navbarmainLinks">Movies</span>
+              </Link>
+              <Link to="/mylist" className="link">
+                <span>My List</span>
+              </Link>
+            </div>
+            <div className="button">
+              <Menu onClick={() => setShowLinks(!showLinks)}/>
+
+            </div>
           </div>
 
           <div className="right">
@@ -73,16 +80,11 @@ const Navbar = () => {
               <SearchBar />
             </div>
 
-            <div className="info">
-              <Link to="/profile">
-                <img
-                  src="https://pbs.twimg.com/media/D8tCa48VsAA4lxn.jpg"
-                  alt=""
-                />
-              </Link>
-            </div>
-
             <div className="dropDown">
+              <img
+                src="https://pbs.twimg.com/media/D8tCa48VsAA4lxn.jpg"
+                alt=""
+              />
               <ArrowDropDown className="icon" />
               <div className="options">
                 <span onClick={() => dispatch(logout())}>Logout</span>

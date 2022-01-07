@@ -14,11 +14,11 @@
   &.scrolled {
     background-color: var(--main-color);
   }
-  .Navbar{
+  .Navbar {
     &__fixed {
       background-image: none;
       background-color: $black;
-  }
+    }
   }
   .container {
     padding: 0px 50px;
@@ -34,43 +34,75 @@
     .left {
       display: flex;
       align-items: center;
-      .link{
-        margin-left: 2rem;
-        display: inline-block;
-        margin: 0 12px;
-        font-size: 14px;
-        text-shadow: 2px 2px 6px rgba($color: $pure-black, $alpha: 0.9);
-        @include mq('sm'){
-          font-size: 16px;
-      }
-      @include mq('md'){
-          font-size: 1.8vw;
-      }
-      @include mq('lg'){
-          font-size: 1.2vw;
-          text-shadow: 2px 2px 2px rgba($color: $black, $alpha: 0.45);
-      }
-      @include mq(1330px){
-          font-size: 18px;
-      }
-      }
-      img {
-        height: 25px;
-        margin-right: 40px;
 
-        @include mobile {
+      .links {
+        .link {
+          margin-left: 2rem;
+          display: inline-block;
+          margin: 0 12px;
+          font-size: 14px;
+          text-shadow: 2px 2px 6px rgba($color: $pure-black, $alpha: 0.9);
+         
+          @include mobile {
+            margin: 13px;
+          }
+          @include mq("md") {
+            font-size: 2.5vw;
+            margin: 10px;
+          }
+          @include mq("lg") {
+            font-size: 1.2vw;
+            text-shadow: 2px 2px 2px rgba($color: $black, $alpha: 0.45);
+          }
+          @include mq(1330px) {
+            font-size: 18px;
+          }
+        }
+        @include tablet {
           display: none;
+        }
+        img {
+          height: 25px;
+          margin-right: 40px;
+
+          @include tablet {
+            display: none;
+          }
+        }
+
+        span {
+          margin-right: 20px;
+          cursor: pointer;
+
+          &:hover {
+            color: red;
+          }
+        }
+      }
+      .button {
+        display: none;
+        cursor: pointer;
+        @include tablet {
+          display: flex;
+        }
+        @include mobile {
+          margin-left: 10px;
         }
       }
 
-      span {
-        margin-right: 20px;
-        cursor: pointer;
-
-
-
-        &:hover {
-          color: red;
+      #hidden {
+        display: flex;
+        @include tablet {
+          position: absolute;
+          left: 0;
+          top: 70px;
+          height: 230px;
+          max-height: 230px;
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.9);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
       }
     }
@@ -93,31 +125,27 @@
         }
       }
 
-      .info {
+      .dropDown {
+        cursor: pointer;
         img {
           width: 30px;
           height: 30px;
           border-radius: 5px;
           object-fit: cover;
-          cursor: pointer;
         }
-      }
-
-      .dropDown {
-        
         .options {
           display: none;
-          background-color: rgba(0,0,0,0.75);
+          background-color: rgba(0, 0, 0, 0.75);
           border-radius: 5px;
         }
 
         span {
           padding: 10px;
-          cursor: pointer;
         }
 
         &:hover {
           .options {
+            margin-left: 35px;
             display: flex;
             flex-direction: column;
             position: absolute;
