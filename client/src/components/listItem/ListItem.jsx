@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaPlus, FaMinus, FaPlay, FaChevronDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { showModalDetail } from "../../redux/modal/modal.actions";
+import { showModalDetail, hideModalDetail } from "../../redux/modal/modal.actions";
 import { useDispatch } from "react-redux";
-
 
 export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -67,7 +66,7 @@ export default function ListItem({ index, item }) {
     <div>
       <div
         className={`Row__poster ${"Row__poster--big"}`}
-        // onClick={handleModalOpening}
+        onClick={handleModalOpening}
       >
         <img src={movie?.imgSm} alt={movie?.title} />
 
@@ -75,14 +74,14 @@ export default function ListItem({ index, item }) {
           <div className="Row__poster-info--iconswrp">
             <Link
               className="Row__poster-info--icon icon--play"
-
+              onClick = {(e) => e.stopPropagation()}
               to={{ pathname: "/watch", movie: movie }}
             >
               <FaPlay />
             </Link>
             <button
               className="Row__poster-info--icon icon--favourite"
-              onClick={() => addFavouriteMovie(movie)}
+              onClick={(e) => {addFavouriteMovie(movie); e.stopPropagation()}}
             >
               <FaPlus />
             </button>

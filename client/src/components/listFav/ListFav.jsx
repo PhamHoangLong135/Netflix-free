@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
-const ListFav = (result) => {
+const ListFav = (result, removeFavouriteMovie) => {
   const dispatch = useDispatch();
   const [myMovie, setMyMovie] = useState([]);
 
@@ -21,22 +21,24 @@ const ListFav = (result) => {
     }
   }, []);
 
+  console.log(result)
   const saveToLocalStorage = (items) => {
     localStorage.setItem("react-movie-app-favourites", JSON.stringify(items));
   };
 
-  const removeFavouriteMovie = (movie) => {
-    const newFavouriteList = myMovie.filter(
-      (favourite) => favourite._id !== movie._id
-    );
+  // const removeFavouriteMovie = (movie) => {
+  //   const newFavouriteList = myMovie.filter(
+  //     (favourite) => favourite._id !== movie._id
+  //   );
 
-    setMyMovie(newFavouriteList);
-    saveToLocalStorage(newFavouriteList);
-  };
+  //   setMyMovie(newFavouriteList);
+  //   saveToLocalStorage(newFavouriteList);
+  // };
 
   const handleModalOpening = () => {
     dispatch(showModalDetail(result));
   };
+
 
   return (
     <motion.div

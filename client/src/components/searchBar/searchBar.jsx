@@ -254,7 +254,6 @@ export function SearchBar(props) {
                     thumbanilSrc={show.img}
                     name={show.title}
                     show={show}
-                    // rating={show.rating && show.rating.average}
                   />
                 ))}
               </>

@@ -13,7 +13,7 @@ export default function WidgetSm() {
         const res = await axios.get("/user?new=true", {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjhlYjNmMWUwOTFkNGRhODQ0MzdiZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0MDk2NjAwMywiZXhwIjoxNjQxMzk4MDAzfQ.SQABgQpigzKeW2GONQYPT_gdmrVPs5ifuNisfQlRizA",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjhlYjNmMWUwOTFkNGRhODQ0MzdiZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0MTU2MjUzNSwiZXhwIjoxNjQxOTk0NTM1fQ.7FSqeJ1fWnJc0sRKtr9RQi9AgN5wNtimt4zK6ORwFLY",
           },
         });
         setNewUsers(res.data);
@@ -24,17 +24,6 @@ export default function WidgetSm() {
     getNewUsers();
   }, []);
 
-  // console.log( newUsers)
-  // const handleChange = () => {
-  //   if(newUser){
-
-  //   }
-  //   if(newUsers.isAdmin){
-  //     return newUsers.isAdmin = false;
-  //   }else{
-  //     return newUsers.isAdmin = true;
-  //   }
-  // }
   return (
     <div className="widgetSm">
       <span className="widgetSmTitle">New Join Members</span>
