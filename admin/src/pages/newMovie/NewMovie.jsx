@@ -50,9 +50,9 @@ export default function NewMovie() {
     e.preventDefault();
     upload([
       { file: img, label: "img" },
-      { file: imgTitle, label: "imgTitle" },
+      // { file: imgTitle, label: "imgTitle" },
       { file: imgSm, label: "imgSm" },
-      { file: trailer, label: "trailer" },
+      // { file: trailer, label: "trailer" },
       { file: video, label: "video" },
     ]);
   };
@@ -73,15 +73,6 @@ export default function NewMovie() {
             id="img"
             name="img"
             onChange={(e) => setImg(e.target.files[0])}
-          />
-        </div>
-        <div className="addProductItem">
-          <label>Title image</label>
-          <input
-            type="file"
-            id="imgTitle"
-            name="imgTitle"
-            onChange={(e) => setImgTitle(e.target.files[0])}
           />
         </div>
         <div className="addProductItem">
@@ -153,14 +144,6 @@ export default function NewMovie() {
             <option value="false">No</option>
             <option value="true">Yes</option>
           </select>
-        </div>
-        <div className="addProductItem">
-          <label>Trailer</label>
-          <input
-            type="file"
-            name="trailer"
-            onChange={(e) => setTrailer(e.target.files[0])}
-          />
         </div>
         <div className="addProductItem">
           <label>Video</label>
