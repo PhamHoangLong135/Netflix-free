@@ -153,7 +153,7 @@ export default function NewMovie() {
             onChange={(e) => setVideo(e.target.files[0])}
           />
         </div>
-        {uploaded === 5 ? (
+        {uploaded === 3 ? (
           <button className="addProductButton" onClick={handleSubmit}>
             Create
           </button>
