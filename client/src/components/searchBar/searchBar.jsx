@@ -89,7 +89,6 @@ const LineSeperator = styled.span`
 `;
 
 const SearchContent = styled.div`
-  width: 300px;
   height: 100%;
   display: flex;
   flex-direction: column;
