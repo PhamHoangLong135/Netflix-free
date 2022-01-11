@@ -93,8 +93,12 @@ const SearchContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1em;
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+}
 `;
 
 const LoadingWrapper = styled.div`

@@ -84,6 +84,7 @@
 }
 
 .productFormLeft {
+  width: 500px;
   display: flex;
   flex-direction: column;
 }

@@ -22,7 +22,7 @@ export default function MovieList() {
     {
       field: "movie",
       headerName: "Movie",
-      width: 200,
+      width: 280,
       renderCell: (params) => {
         return (
           <div className="productListItem">
@@ -32,10 +32,10 @@ export default function MovieList() {
         );
       },
     },
-    { field: "genre", headerName: "Genre", width: 120 },
+    { field: "genre", headerName: "Genre", width: 150 },
     { field: "year", headerName: "year", width: 120 },
     { field: "limit", headerName: "limit", width: 120 },
-    { field: "isSeries", headerName: "isSeries", width: 120 },
+    { field: "isSeries", headerName: "isSeries", width: 150 },
 
     {
       field: "action",
