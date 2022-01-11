@@ -41,7 +41,7 @@ export default function ListItem({ index, item }) {
     if (movieFavourites) {
       setFavourites(movieFavourites);
     }
-  }, []);
+  }, [favourites]);
 
   const saveToLocalStorage = (items) => {
     localStorage.setItem("react-movie-app-favourites", JSON.stringify(items));

@@ -39,7 +39,7 @@ export default function MyList() {
     setMyMovie(newFavouriteList);
     saveToLocalStorage(newFavouriteList);
   };
-
+  console.log(myMovie);
   return (
     <>
       <Navbar />
@@ -62,7 +62,7 @@ export default function MyList() {
         >
           {myMovie && myMovie.length > 0 ? (
             myMovie.map((result) => (
-              <ListFav key={result.id} item={result} {...result} removeFavouriteMovie={removeFavouriteMovie} />
+              <ListFav key={result.id} item={result} {...result} onDelete={() => removeFavouriteMovie(result)} />
             ))
           ) : (
             <h2 className="MyList__title">

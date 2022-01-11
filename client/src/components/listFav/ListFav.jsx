@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 
-const ListFav = (result, removeFavouriteMovie) => {
+const ListFav = ({item, onDelete}) => {
   const dispatch = useDispatch();
   const [myMovie, setMyMovie] = useState([]);
 
@@ -21,24 +21,25 @@ const ListFav = (result, removeFavouriteMovie) => {
     }
   }, []);
 
-  console.log(result)
+  console.log(item)
   const saveToLocalStorage = (items) => {
     localStorage.setItem("react-movie-app-favourites", JSON.stringify(items));
   };
 
-  // const removeFavouriteMovie = (movie) => {
-  //   const newFavouriteList = myMovie.filter(
-  //     (favourite) => favourite._id !== movie._id
-  //   );
+  const removeFavouriteMovie = (movie) => {
+    const newFavouriteList = myMovie.filter(
+      (favourite) => favourite._id !== movie._id
+    );
 
-  //   setMyMovie(newFavouriteList);
-  //   saveToLocalStorage(newFavouriteList);
-  // };
-
-  const handleModalOpening = () => {
-    dispatch(showModalDetail(result));
+    setMyMovie(newFavouriteList);
+    saveToLocalStorage(newFavouriteList);
   };
 
+  const handleModalOpening = () => {
+    dispatch(showModalDetail(item));
+  };
+
+  console.log(onDelete)
 
   return (
     <motion.div
@@ -46,19 +47,18 @@ const ListFav = (result, removeFavouriteMovie) => {
       className="Poster"
       //   onClick={handleModalOpening}
     >
-      <img src={result?.imgSm} alt="" />
+      <img src={item?.imgSm} alt="" />
       <div className="Poster__info">
         <div className="Poster__info--iconswrp">
           <Link
             className="Poster__info--icon icon--play"
-            // onClick={handlePlayAction}
-            to={{ pathname: "/watch", movie: result }}
+            to={{ pathname: "/watch", movie: item }}
           >
             <FaPlay />
           </Link>
           <button
             className="Poster__info--icon icon--favourite"
-            onClick={() => removeFavouriteMovie(result)}
+            onClick={() => onDelete(item)}
           >
             <FaMinus />
           </button>
@@ -67,10 +67,10 @@ const ListFav = (result, removeFavouriteMovie) => {
           </button>
         </div>
         <div className="Poster__info--title">
-          <h3>{result?.title}</h3>
+          <h3>{item?.title}</h3>
         </div>
         <div className="Poster__info--genres">
-          <span className="genre-title">{result?.genre}</span>
+          <span className="genre-title">{item?.genre}</span>
         </div>
       </div>
     </motion.div>
