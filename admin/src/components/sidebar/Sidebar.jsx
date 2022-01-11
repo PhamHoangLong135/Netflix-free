@@ -8,9 +8,13 @@ import {
   QueuePlayNext,
   HomeOutlined,
 } from "@material-ui/icons";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { logout } from "../../context/authContext/AuthActions";
+import { AuthContext } from "../../context/authContext/AuthContext";
 
 export default function Sidebar() {
+  const { dispatch } = useContext(AuthContext);
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -65,8 +69,10 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <Link to="/login" className="link">
               <li className="sidebarListItem">
-                <HomeOutlined className="sidebarIcon" />
-                Logout
+                <HomeOutlined
+                  className="sidebarIcon"
+                />
+                <span onClick={() => dispatch(logout())}>Logout</span>
               </li>
             </Link>
           </ul>
