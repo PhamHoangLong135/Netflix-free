@@ -18,7 +18,6 @@ const Navbar = () => {
   const history = useHistory();
   const { dispatch } = useContext(AuthContext);
   const [filteredResults, setFilteredResults] = useState([]);
-  const [searchInput, setSearchInput] = useState("");
   const [showLinks, setShowLinks] = useState(false);
 
   useEffect(() => {

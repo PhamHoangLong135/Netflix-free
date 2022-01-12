@@ -52,7 +52,6 @@ export default function TvShow(props) {
         </Thumbnail>
         <Name >{name}</Name>
       </Link>
-      {/* <Rating>{rating || "N/A"}</Rating> */}
     </TvShowContainer>
   );
 }

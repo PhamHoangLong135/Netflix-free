@@ -18,12 +18,6 @@ SwiperCore.use([Navigation, Pagination]);
 
 export default function List({ list }) {
   const { width } = useViewport();
-  const [isMoved, setIsMoved] = useState(false);
-  const [slideNumber, setSlideNumber] = useState(0);
-  const [clickLimit, setClickLimit] = useState(window.innerWidth / 230);
-
-  const listRef = useRef();
-
   //Custom Swiper config
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);

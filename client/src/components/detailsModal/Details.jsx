@@ -17,11 +17,6 @@ const DetailModal = () => {
 	const handleModalClose = () => dispatch(hideModalDetail());
 	const modalRef = useRef();
 
-
-	// const handlePlayAnimation = event => {
-	// 	event.stopPropagation();
-	// 	handleModalClose();
-	// };
 	useOutsideClick(modalRef, () => {
 		if (!modalClosed) handleModalClose();
 	});
