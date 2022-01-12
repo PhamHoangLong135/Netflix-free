@@ -32,6 +32,7 @@
 .addProductButton {
   height: 30px;
   margin-top: 10px;
+  margin-left: 15px;
   padding: 7px 10px;
   border: none;
   border-radius: 10px;
