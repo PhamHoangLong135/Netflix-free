@@ -21,18 +21,8 @@ const ListFav = ({item, onDelete}) => {
     }
   }, []);
 
-  console.log(item)
   const saveToLocalStorage = (items) => {
     localStorage.setItem("react-movie-app-favourites", JSON.stringify(items));
-  };
-
-  const removeFavouriteMovie = (movie) => {
-    const newFavouriteList = myMovie.filter(
-      (favourite) => favourite._id !== movie._id
-    );
-
-    setMyMovie(newFavouriteList);
-    saveToLocalStorage(newFavouriteList);
   };
 
   const handleModalOpening = () => {
@@ -45,7 +35,7 @@ const ListFav = ({item, onDelete}) => {
     <motion.div
       variants={posterFadeInVariants}
       className="Poster"
-      //   onClick={handleModalOpening}
+        onClick={handleModalOpening}
     >
       <img src={item?.imgSm} alt="" />
       <div className="Poster__info">

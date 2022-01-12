@@ -30,7 +30,7 @@ router.put("/:id", verify, async (req, res) => {
         },
         { new: true }
       );
-      
+
       res.status(200).json(updatedMovie);
     } catch (err) {
       res.status(500).json(err);
@@ -39,29 +39,6 @@ router.put("/:id", verify, async (req, res) => {
     res.status(403).json("You are not allowed!");
   }
 });
-
-// router.put("/:id", verify , async (req, res) => {
-//   if (req.user.isAdmin){
-//     try {
-//       const updatedMovie = await Movie.findById(
-//         req.params.id)
-//         const {title, year, genre, limit } = req.body;
-//         if (!title || !year || !genre || !limit) {
-//           res.status(400).json({
-//               message: 'Please provide all the required fields'
-//           });
-//         } else{
-//           user.name = name;
-//           user.email = email;
-//           user.mobile = mobile;
-//         }
-//       res.status(200).json(updatedMovie);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   }
-// });
-
 
 //DELETE
 
@@ -129,10 +106,9 @@ router.get("/", verify, async (req, res) => {
 
 //search movie theo title query
 
-
 router.get("/search", async (req, res) => {
   const query = req.query.new;
-{
+  {
     try {
       const movies = query
         ? await Movie.find().sort({ _id: -1 })
@@ -143,6 +119,5 @@ router.get("/search", async (req, res) => {
     }
   }
 });
-
 
 module.exports = router;
