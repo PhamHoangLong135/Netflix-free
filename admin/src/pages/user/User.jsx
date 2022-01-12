@@ -7,7 +7,7 @@ import {
   Publish,
 } from "@material-ui/icons";
 import { useState, useEffect } from "react";
-import { Link, useLocation,useParams,useHistory } from "react-router-dom";
+import { Link, useLocation, useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import "./user.css";
 
@@ -15,13 +15,13 @@ export default function User() {
   const location = useLocation();
   const user = location.user;
   const history = useHistory();
-  const {userId} = useParams();
+  const { userId } = useParams();
   const [userData, setUserData] = useState(null);
   const [getUser, setGetUser] = useState([]);
 
 
   useEffect(() => {
-    axios.get(`/user/find/${userId}`,{
+    axios.get(`/user/find/${userId}`, {
       headers: {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
@@ -33,7 +33,7 @@ export default function User() {
   const handleChange = (e) => {
     const value = e.target.value;
     return setUserData({
-      ...userData,  
+      ...userData,
       [e.target.name]: value,
     });
   };
@@ -44,13 +44,7 @@ export default function User() {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
     });
-    // history.push("/users");
   };
-  // console.log(userData);
-  // console.log({userId})
-  // console.log("getUser khi mount", getUser)
-  // console.log("userKhiMount", user)
-
   return (
     <div className="user">
       <div className="userTitleContainer">
@@ -63,7 +57,7 @@ export default function User() {
         <div className="userShow">
           <div className="userShowTop">
             <img
-              src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg"
+              src="https://storage.jewheart.com/content/users/avatars/3746/avatar_3746_500.jpg?1558628223"
               alt=""
               className="userShowImg"
             />
@@ -124,17 +118,6 @@ export default function User() {
               </div>
             </div>
             <div className="userUpdateRight">
-              {/* <div className="userUpdateUpload">
-                <img
-                  className="userUpdateImg"
-                  src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                  alt=""
-                />
-                <label htmlFor="file">
-                  <Publish className="userUpdateIcon" />
-                </label>
-                <input type="file" id="file" style={{ display: "none" }} />
-              </div> */}
               <button className="userUpdateButton" onClick={updateUserData}>Update</button>
             </div>
           </form>

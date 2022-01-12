@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import "./newList.css";
-import storage from "../../firebase";
 import { createMovie, getMovies } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
 import { ListContext } from "../../context/listContext/ListContext";
@@ -11,9 +10,7 @@ import axios from "axios";
 export default function NewList() {
   const [list, setList] = useState(null);
   const [idList, setIdList] = useState(null);
-  // const [listMovie, setListMovie] = useState([])
-  const history = useHistory()
-  const {listID} = useParams()
+  const history = useHistory();
   const { dispatch } = useContext(ListContext);
   const { movies, dispatch: dispatchMovie } = useContext(MovieContext);
   const { lists, dispatch: dispatchList } = useContext(ListContext);
@@ -48,8 +45,6 @@ export default function NewList() {
     history.push("/lists")
   };
 
-  // console.log(list.content)
-
   const pushMovieList = () => {
     axios.post(`/lists/${idList._id}`, list.content)
   }
@@ -58,7 +53,6 @@ export default function NewList() {
     axios.post(`/lists/moDelete/${idList._id}`, list.content)
   }
 
-  // console.log(list.content);
   console.log(idList);
   return (
     <div className="newProduct">

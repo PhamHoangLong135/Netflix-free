@@ -8,11 +8,7 @@ import { useEffect } from "react";
 import {deleteUser, getUsers} from "../../context/userContext/apiCalls"
 
 export default function UserList() {
-  // const [data, setData] = useState(userRows);
   const {users ,dispatch} = useContext( UserContext)
-  // const handleDelete = (id) => {
-  //   setData(data.filter((item) => item.id !== id));
-  // };
   useEffect(() => {
     getUsers(dispatch)
   }, [dispatch])
@@ -29,7 +25,7 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            <img className="userListImg" src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg" alt="" />
+            <img className="userListImg" src="https://storage.jewheart.com/content/users/avatars/3746/avatar_3746_500.jpg?1558628223" alt="" />
             {params.row.username}
           </div>
         );
