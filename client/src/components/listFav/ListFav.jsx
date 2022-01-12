@@ -42,13 +42,14 @@ const ListFav = ({item, onDelete}) => {
         <div className="Poster__info--iconswrp">
           <Link
             className="Poster__info--icon icon--play"
+            onClick = {(e) => e.stopPropagation()}
             to={{ pathname: "/watch", movie: item }}
           >
             <FaPlay />
           </Link>
           <button
             className="Poster__info--icon icon--favourite"
-            onClick={() => onDelete(item)}
+            onClick={(e) => {onDelete(item); e.stopPropagation()}}
           >
             <FaMinus />
           </button>
