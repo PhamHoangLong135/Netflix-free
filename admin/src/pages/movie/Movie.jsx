@@ -1,24 +1,11 @@
 import { Link, useLocation, useHistory, useParams } from "react-router-dom";
 import "./movie.css";
-import { Publish } from "@material-ui/icons";
-import { useContext } from "react";
-import { MovieContext } from "../../context/movieContext/MovieContext";
-import { updateMovie } from "../../context/movieContext/apiCalls";
 import { useState, useEffect } from "react";
-import storage from "../../firebase";
 import axios from "axios";
 
 export default function Movie() {
   const location = useLocation();
-  const history = useHistory();
-  const movie = location.movie;
   const [movieData, setMovieData] = useState(null);
-
-  // const [trailer, setTrailer] = useState(null);
-  const [img, setImg] = useState(null);
-  // const [video, setVideo] = useState(null);
-  // const [uploaded, setUploaded] = useState(0);
-  const { movies, dispatch } = useContext(MovieContext);
   const { movieId } = useParams();
   const [getMovie, setGetMovie] = useState([]);
 
@@ -34,7 +21,6 @@ export default function Movie() {
         setGetMovie(response.data);
       });
   }, []);
-  // console.log('Mang moi khi mount',getMovie)
   const handleChange = (e) => {
     const value = e.target.value;
     return setMovieData({
@@ -48,14 +34,7 @@ export default function Movie() {
         token: "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
       },
     });
-    // history.push("/movies");
   };
-
-  // const handleUpdate = async () => {
-  //   updateMovie(movieData, dispatch);
-  //   // history.push("/movies");
-  //   // console.log(movieData);
-  // };
 
   return (
     <div className="product">
@@ -131,26 +110,9 @@ export default function Movie() {
               name="limit"
               onChange={handleChange}
             />
-            {/* <label>Trailer</label>
-            <input type="file" placeholder={movie.trailer} onChange={handleChange}/>
-            <label>Video</label>
-            <input type="file" placeholder={movie.video} onChange={handleChange}/> */}
           </div>
 
           <div className="productFormRight">
-            {/* <div className="productUpload">
-              <img src={getMovie.img} alt="" className="productUploadImg" />
-              <label for="file">
-                <Publish />
-              </label>
-              <input
-                type="file"
-                id="file"
-                name="img"
-                style={{ display: "none" }}
-                onChange={(e) => setImg(e.target.files[0])}
-              />
-            </div> */}
             <button className="productButton" onClick={updateAPIData}>
               Update
             </button>

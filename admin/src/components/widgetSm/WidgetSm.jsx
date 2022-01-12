@@ -33,7 +33,7 @@ export default function WidgetSm() {
             <img 
               src={
                 user.profilePic ||
-                "https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg"
+                "https://storage.jewheart.com/content/users/avatars/3746/avatar_3746_500.jpg?1558628223"
               }
               alt=""
               className="widgetSmImg"
