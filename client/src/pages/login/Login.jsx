@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../../authContext/apiCalls";
-// import { authFadeInUpVariants, staggerOne } from "../../motionUtils";
+import { authFadeInUpVariants, staggerOne } from "../../motionUtils";
 import { motion } from "framer-motion";
 import { AuthContext } from "../../authContext/AuthContext";
 // import  useForm from "../../hooks/useForm";
@@ -97,21 +97,31 @@ export default function Login() {
         </div>
       </div>
       <div className="container">
-        <form>
+        <motion.form
+          variants={staggerOne}
+          initial="initial"
+          animate="animate">
           <h1>Sign In</h1>
-          <input
-            type="email"
-            placeholder="Email or phone number"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button className="loginButton" onClick={handleLogin}>
+          <motion.div variants={authFadeInUpVariants} className="inputWrp">
+            <input
+              type="email"
+              placeholder="Email or phone number"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </motion.div>
+          <motion.div variants={authFadeInUpVariants} className="inputWWrp">
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </motion.div>
+          <motion.button
+            className="loginButton"
+            variants={authFadeInUpVariants}
+            onClick={handleLogin}>
             Sign In
-          </button>
+          </motion.button>
           <span>
             New to Netflix?
             <Link
@@ -126,7 +136,7 @@ export default function Login() {
               <b> Learn more.</b>
             </a>
           </small>
-        </form>
+        </motion.form>
       </div>
     </div>
   );
