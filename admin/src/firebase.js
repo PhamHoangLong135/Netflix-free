@@ -1,13 +1,13 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBv-bKx2VqLLxBpxFROvHq9hkVOPNAMdNA",
-  authDomain: "neflix-b5979.firebaseapp.com",
-  projectId: "neflix-b5979",
-  storageBucket: "neflix-b5979.appspot.com",
-  messagingSenderId: "697989729092",
-  appId: "1:697989729092:web:e6795fd08b1b066f07e511",
-  measurementId: "G-P062BKNXD3",
+  apiKey: "AIzaSyBzRYpbkjt8OwhTHezHTMXCrDbVzgMYf0M",
+  authDomain: "neflix123-93fab.firebaseapp.com",
+  projectId: "neflix123-93fab",
+  storageBucket: "neflix123-93fab.appspot.com",
+  messagingSenderId: "409328090325",
+  appId: "1:409328090325:web:f9e1614500172dc7b6f65c",
+  measurementId: "G-3X25PVHK0C"
 };
 
 firebase.initializeApp(firebaseConfig);
