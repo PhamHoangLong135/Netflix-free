@@ -48,30 +48,15 @@ export default function Watch() {
       setList(currentMovie);
     }
   }, []);
-  const prevNext = () => {
-    vid.currentTime -= 10;
-  };
-  const skipNext = () => {
-    vid.currentTime += 10;
-  };
+  // const prevNext = () => {
+  //   vid.currentTime -= 10;
+  // };
+  // const skipNext = () => {
+  //   vid.currentTime += 10;
+  // };
 
   return (
     <div className="watch">
-      {/*
-      <div class="prev" onClick={prevNext}>
-        <SkipPreviousIcon />
-      </div>
-      <div className="next" onClick={skipNext}>
-        <SkipNextIcon />
-      </div>
-      <video
-        id="myVideo"
-        className="video"
-        autoPlay
-        progress
-        controls
-        src={movies.video}
-      /> */}
        <button onClick={history.goBack}>
         <div className="back">
           <ArrowBackOutlined />
