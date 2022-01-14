@@ -75,7 +75,7 @@ export default function ListItem({ index, item }) {
             <Link
               className="Row__poster-info--icon icon--play"
               onClick = {(e) => e.stopPropagation()}
-              to={{ pathname: "/watch", movie: movie }}
+              to={{ pathname: "/watch", movie: movie, item: item }}
             >
               <FaPlay />
             </Link>

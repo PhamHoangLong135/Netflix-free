@@ -1,6 +1,7 @@
 .watch {
   width: 100vw;
   height: 100vh;
+  position: relative;
 
   button {
     display: contents;
@@ -15,6 +16,23 @@
       cursor: pointer;
       z-index: 2;
     }
+  }
+
+  .prev{
+    position: absolute;
+    bottom: 40px;
+    left: 180px;
+    color: white;
+    cursor: pointer; 
+    z-index: 2;
+  }
+  .next{
+    position: absolute;
+    bottom: 40px;
+    left: 200px;
+    color: white;
+    cursor: pointer; 
+    z-index: 2;
   }
 
   .video {
