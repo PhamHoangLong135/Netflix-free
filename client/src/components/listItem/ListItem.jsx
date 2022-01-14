@@ -3,18 +3,21 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaPlus, FaMinus, FaPlay, FaChevronDown } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { showModalDetail, hideModalDetail } from "../../redux/modal/modal.actions";
+import {
+  showModalDetail,
+  hideModalDetail,
+} from "../../redux/modal/modal.actions";
 import { useDispatch } from "react-redux";
 
 export default function ListItem({ index, item }) {
   const [isHovered, setIsHovered] = useState(false);
   const [movie, setMovie] = useState({});
   const [favourites, setFavourites] = useState([]);
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleModalOpening = () => {
-		dispatch(showModalDetail(movie));
-	}
+    dispatch(showModalDetail(movie));
+  };
 
   useEffect(() => {
     const getMovie = async () => {
@@ -74,21 +77,22 @@ export default function ListItem({ index, item }) {
           <div className="Row__poster-info--iconswrp">
             <Link
               className="Row__poster-info--icon icon--play"
-              onClick = {(e) => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
               to={{ pathname: "/watch", movie: movie, item: item }}
             >
               <FaPlay />
             </Link>
             <button
               className="Row__poster-info--icon icon--favourite"
-              onClick={(e) => {addFavouriteMovie(movie); e.stopPropagation()}}
+              onClick={(e) => {
+                addFavouriteMovie(movie);
+                e.stopPropagation();
+              }}
             >
               <FaPlus />
             </button>
             <button className="Row__poster-info--icon icon--toggleModal">
-              <FaChevronDown
-              onClick={handleModalOpening}
-              />
+              <FaChevronDown onClick={handleModalOpening} />
             </button>
           </div>
           <div className="Row__poster-info--title">
