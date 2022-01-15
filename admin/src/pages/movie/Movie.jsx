@@ -65,8 +65,8 @@ export default function Movie() {
               <span className="productInfoValue">{getMovie.year}</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">limit:</span>
-              <span className="productInfoValue">{getMovie.limit}</span>
+              <span className="productInfoKey">Desc:</span>
+              <span className="productInfoValue">{getMovie.desc}</span>
             </div>
           </div>
         </div>
@@ -101,13 +101,13 @@ export default function Movie() {
               name="genre"
               onChange={handleChange}
             />
-            <label>Limit</label>
+            <label>Desc</label>
             <input
               type="text"
               placeholder={
-                getMovie && getMovie.limit ? getMovie.limit : "khong load duoc"
+                getMovie && getMovie.desc ? getMovie.desc : "khong load duoc"
               }
-              name="limit"
+              name="desc"
               onChange={handleChange}
             />
           </div>

@@ -50,16 +50,7 @@ export default function Watch() {
 
   return (
     <div className="watch">
-      {/*
-      <video
-        id="myVideo"
-        className="video"
-        autoPlay
-        progress
-        controls
-        src={movies.video}
-      /> */}
-      <button onClick={history.goBack}>
+       <button onClick={history.goBack}>
         <div className="back">
           <ArrowBackOutlined />
           Back
