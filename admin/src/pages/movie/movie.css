@@ -58,9 +58,9 @@
 }
 
 .productInfoItem {
-  width: 150px;
+  width: 350px;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
 }
 
 .productInfoKey{
