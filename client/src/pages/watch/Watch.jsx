@@ -4,8 +4,6 @@ import "./watch.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import SkipNextIcon from "@mui/icons-material/SkipNext";
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import {
   Player,
   ControlBar,
@@ -17,48 +15,69 @@ import {
   VolumeMenuButton,
 } from "video-react";
 import "video-react/dist/video-react.css";
+import BigPlayButton from "video-react/lib/components/BigPlayButton";
 
 export default function Watch() {
   const location = useLocation();
   const movie = location.movie;
   const history = useHistory();
   const [movies, setMovies] = useState({});
-  // useEffect(() => {
-  //   const getMovie = async () => {
-  //     try {
-  //       const res = await axios.get("/movie/find/" + movie._id, {
-  //         headers: {
-  //           token:
-  //             "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
-  //         },
-  //       });
-  //       setMovies(res.data);
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   };
-  //   getMovie();
-  // }, []);
-  const sources = { video: movie.video };
+  const [list, setList] = useState({ video: movie.video });
+  useEffect(() => {
+    const getMovie = async () => {
+      try {
+        const res = await axios.get("/movie/find/" + movie._id, {
+          headers: {
+            token:
+              "Bearer " + JSON.parse(localStorage.getItem("user")).accessToken,
+          },
+        });
+        setMovies(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getMovie();
+  }, []);
+
+  const saveTime = () => {
+    const vid = document.getElementById("myVideo");
+    localStorage.setItem(`${movie._id}`, vid.currentTime);
+    history.goBack();
+  };
+
+  useEffect(() => {
+    const watched = localStorage.getItem(`${movie._id}`);
+    const vid = document.getElementById("myVideo");
+    if (movie) {
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if(key){
+          vid.currentTime = watched;
+        }else{
+          vid.currentTime = 0;
+        }
+      }
+    }
+  });
+
+  // console.log(movie.video);
   return (
     <div className="watch">
-      <button onClick={history.goBack}>
+      <button onClick={saveTime}>
         <div className="back">
           <ArrowBackOutlined />
           Back
         </div>
       </button>
-      <Player poster={movie.imgSm} autoPlay>
-        <source src={movie.video} />
-        <ControlBar>
-          <ReplayControl seconds={10} order={1.1} />
-          <ForwardControl seconds={30} order={1.2} />
-          <CurrentTimeDisplay order={4.1} />
-          <TimeDivider order={4.2} />
-          <PlaybackRateMenuButton rates={[5, 2, 1, 0.5, 0.1]} order={7.1} />
-          <VolumeMenuButton disabled />
-        </ControlBar>
-      </Player>
+      <video
+        className="video"
+        autoPlay
+        progress
+        controls
+        src={movie.video}
+        id="myVideo"
+      />
     </div>
   );
 }

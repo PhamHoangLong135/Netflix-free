@@ -53,15 +53,15 @@ export default function Movie() {
           </div>
           <div className="productInfoBottom">
             <div className="productInfoItem">
-              <span className="productInfoKey">id:</span>
+              <span className="productInfoKey">ID:</span>
               <span className="productInfoValue">{getMovie._id}</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">genre:</span>
+              <span className="productInfoKey">Genre:</span>
               <span className="productInfoValue">{getMovie.genre}</span>
             </div>
             <div className="productInfoItem">
-              <span className="productInfoKey">year:</span>
+              <span className="productInfoKey">Year:</span>
               <span className="productInfoValue">{getMovie.year}</span>
             </div>
             <div className="productInfoItem">
@@ -111,7 +111,6 @@ export default function Movie() {
               onChange={handleChange}
             />
           </div>
-
           <div className="productFormRight">
             <button className="productButton" onClick={updateAPIData}>
               Update
